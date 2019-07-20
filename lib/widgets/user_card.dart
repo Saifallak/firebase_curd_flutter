@@ -57,10 +57,6 @@ class _UserCardState extends State<UserCard> {
           ),
           child: Row(
             children: <Widget>[
-              CircleAvatar(
-                backgroundColor: Colors.white70,
-                radius: 50.0,
-              ),
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(left: 8.0),
