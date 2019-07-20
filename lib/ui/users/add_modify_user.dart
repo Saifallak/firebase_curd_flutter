@@ -21,8 +21,10 @@ class _AddModifyUserState extends State<AddModifyUser> {
   @override
   void initState() {
     super.initState();
-    widget.userModel == null ? _isModifying = false : _isModifying = true;
-  }
+    if (widget.userModel != null) {
+      _isModifying = true;
+      _userModel = widget.userModel;
+    }  }
 
   _submitData(BuildContext context) async {
     try {

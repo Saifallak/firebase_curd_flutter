@@ -28,7 +28,10 @@ class _AddModifyCompState extends State<AddModifyComp> {
   @override
   void initState() {
     super.initState();
-    widget.compModel == null ? _isModifying = false : _isModifying = true;
+    if (widget.compModel != null) {
+      _isModifying = true;
+      _compModel = widget.compModel;
+    }
   }
 
   _submitData(BuildContext context) async {
