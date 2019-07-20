@@ -14,6 +14,7 @@ class UserModel {
   UserModel.fromFDatabase(Map json) {
     assert(json != null); // Stop executing if returned data corrupted.
 
+    // splitting our json into the corresponding variables.
     userId = json['id'];
     name = json['name'];
     email = json['email'];
