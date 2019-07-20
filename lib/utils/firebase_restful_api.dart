@@ -35,7 +35,7 @@ class FirebaseRestfulApi {
       // Returned List of Users.
       List<UserModel> _users = List<UserModel>();
 
-      decoded.forEach((key, value) {
+      decoded?.forEach((key, value) {
         _users..add(UserModel.fromFDatabase(key, value));
       });
 
@@ -123,7 +123,7 @@ class FirebaseRestfulApi {
       // Returned List of Users.
       List<CompModel> _comp = List<CompModel>();
 
-      decoded.forEach((key, value) {
+      decoded?.forEach((key, value) {
         _comp..add(CompModel.fromFDatabase(key, value));
       });
 

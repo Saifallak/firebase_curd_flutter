@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:saifoo_crud/ui/users/show_ava.dart';
 
+import 'comp/show_comp.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -11,6 +13,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text("Choose CRUD Type"),
       ),
@@ -37,12 +40,11 @@ class _MainScreenState extends State<MainScreen> {
               padding: EdgeInsets.all(16.0),
               color: Colors.blue,
               child: Text("CRUD FOR COMPANIES"),
-              onPressed: () {},
-//              onPressed: () => Navigator.of(context).push(
-//                MaterialPageRoute(
-//                  builder: (context) => ShowCompaniesAvailable(),
-//                ),
-//              ),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ShowCompaniesAvailable(),
+                ),
+              ),
             ),
           ],
         ),
