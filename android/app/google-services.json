@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "897807840814",
+    "firebase_url": "https://elrizk-crud.firebaseio.com",
+    "project_id": "elrizk-crud",
+    "storage_bucket": "elrizk-crud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897807840814:android:c6e4d2f1a5022617",
+        "android_client_info": {
+          "package_name": "ga.tinyprogrammers.saifoo_crud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897807840814-vbc3tgm4bjgt7v7kt4tgtp0qvtottgdm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ga.tinyprogrammers.saifoo_crud",
+            "certificate_hash": "bd25bd7342b4339ed88e0068987a7c492c7b0ec9"
+          }
+        },
+        {
+          "client_id": "897807840814-aad8dgsrs54js4frihkvvsiq3uj844vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2Ug8qL6rafjRJe-i1brgdGyUyjlVyJ4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897807840814-aad8dgsrs54js4frihkvvsiq3uj844vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
