@@ -14,9 +14,6 @@ class FirebaseRestfulApi {
   /// Comp Node.
   static const String compNode = 'comp';
 
-  /// the WebAPI key for the firebase project (Can be obtained from FB Settings).
-  static const String _apiKey = 'AIzaSyB0qXZdg_OvPZj5F4-E0cG9EKBYtKhs0Eo';
-
   /// Function that connects to Firebase RealTime database and Returns all Users
   /// Node data as json.
   ///
