@@ -41,7 +41,7 @@ this is just a proof of concept that we can use [Firebase](http://firebase.googl
 
 ### Want to try it ?
 #### Just Testing the app ?
-head to : [Output Folder](output).
+head to : [Output Folder](outputs).
 Note: this only have APK, no IPA (might upload it in future).
 
 #### Want to run and generate your own APK/IPA?
