@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LoadingModel extends StatelessWidget {
+  /// Color of Loading Bar.
   final Color color;
-  LoadingModel(this.color);
+
+  /// Constructor
+  const LoadingModel(this.color);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +19,7 @@ class LoadingModel extends StatelessWidget {
 }
 
 class Loading {
+  /// Loading Overlay that prevents user from doing any op. until it's disposed.
   loading(BuildContext context, Color color) {
     return showDialog(
       context: context,

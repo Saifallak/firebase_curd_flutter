@@ -5,6 +5,7 @@ import 'package:saifoo_crud/utils/firebase_restful_api.dart';
 import 'package:saifoo_crud/utils/validators.dart';
 
 class AddModifyUser extends StatefulWidget {
+  /// User Model
   final UserModel userModel;
 
   const AddModifyUser({Key key, this.userModel}) : super(key: key);
@@ -13,20 +14,34 @@ class AddModifyUser extends StatefulWidget {
 }
 
 class _AddModifyUserState extends State<AddModifyUser> {
+  /// Form Key, Needed for validations and Form Controls
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  /// Error Message
   String _error;
+
+  /// User Model, holds the data to edit/upload.
   UserModel _userModel = UserModel();
+
+  /// Boolean used to know which operation we are going to do. (Edit/New).
   bool _isModifying = false;
 
   @override
   void initState() {
     super.initState();
+    // If previous data. then set our reference to it.
     if (widget.userModel != null) {
       _isModifying = true;
       _userModel = widget.userModel;
     }
   }
 
+  /// Submitting Data:
+  /// - Triggers Form Validators and Saves Data
+  /// - Triggers New/Edit Function
+  ///
+  /// inputs: Take Current [context] only
+  /// output: void
   _submitData(BuildContext context) async {
     try {
       if (_formKey.currentState.validate()) {

@@ -12,8 +12,14 @@ class ShowCompaniesAvailable extends StatefulWidget {
 }
 
 class _ShowCompaniesAvailableState extends State<ShowCompaniesAvailable> {
+  /// List of All Available Company Models.
   List<CompModel> _comps = List<CompModel>();
+
+  /// indicator indicates weather the page is still loading or not
+  /// or exactly the data retrieved or not.
   bool _isLoading = true;
+
+  /// Error Message
   String _error;
 
   @override
@@ -22,6 +28,9 @@ class _ShowCompaniesAvailableState extends State<ShowCompaniesAvailable> {
     _initData();
   }
 
+  /// Initializes the required data:
+  /// - resets error to null
+  /// - calls the firebase database to get data.
   Future<void> _initData() async {
     try {
       _error = null;
@@ -35,6 +44,10 @@ class _ShowCompaniesAvailableState extends State<ShowCompaniesAvailable> {
     }
   }
 
+  /// renders the right widget on the screen
+  /// - in case of loading => LoadingModel
+  /// - in case of error => error text
+  /// - else => ListView
   Widget _buildScreenBody() {
     if (_isLoading) {
       // Screen Still loading..
@@ -64,6 +77,7 @@ class _ShowCompaniesAvailableState extends State<ShowCompaniesAvailable> {
     }
   }
 
+  /// Shows the info Dialog.
   Future<AlertDialog> _showInfo() {
     return showDialog(
       context: context,

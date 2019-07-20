@@ -10,6 +10,7 @@ import 'package:saifoo_crud/utils/validators.dart';
 import 'package:uuid/uuid.dart';
 
 class AddModifyComp extends StatefulWidget {
+  /// Company Model
   final CompModel compModel;
 
   const AddModifyComp({Key key, this.compModel}) : super(key: key);
@@ -18,23 +19,42 @@ class AddModifyComp extends StatefulWidget {
 }
 
 class _AddModifyCompState extends State<AddModifyComp> {
+  /// Form Key, Needed for validations and Form Controls
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  /// Storage Client, Needed for Uploading selected Image to Firebase Bucket.
   final _storageClient = StorageClient.internal();
+
+  /// Gallery File, Needed to be used as A Reference for selected image file
   File _galleryFile;
+
+  /// Error Message
   String _error;
+
+  /// Company Model, holds the data to edit/upload.
   CompModel _compModel = CompModel();
+
+  /// Boolean used to know which operation we are going to do. (Edit/New).
   bool _isModifying = false;
 
   @override
   void initState() {
     super.initState();
+    // If previous data. then set our reference to it.
     if (widget.compModel != null) {
       _isModifying = true;
       _compModel = widget.compModel;
     }
   }
 
-  _submitData(BuildContext context) async {
+  /// Submitting Data:
+  /// - Triggers Form Validators and Saves Data
+  /// - Triggers Image Upload
+  /// - Triggers New/Edit Function
+  ///
+  /// inputs: Take Current [context] only
+  /// output: void
+  void _submitData(BuildContext context) async {
     try {
       if (_formKey.currentState.validate() &&
           (_galleryFile != null || widget.compModel?.logo != null)) {
@@ -64,6 +84,8 @@ class _AddModifyCompState extends State<AddModifyComp> {
     }
   }
 
+  /// Prepares the image to upload to bucket.
+  /// and Sends it to [_storageClient].
   Future<void> _uploadIMG() async {
     if (_galleryFile != null) {
       int lastIndex = _galleryFile.path.lastIndexOf('.');
@@ -75,6 +97,7 @@ class _AddModifyCompState extends State<AddModifyComp> {
     }
   }
 
+  /// Triggers the native Image Selector View
   Future<void> _imageSelectorGallery() async {
     File galleryFile = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (mounted) setState(() => _galleryFile = galleryFile);
