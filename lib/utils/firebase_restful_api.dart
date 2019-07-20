@@ -69,7 +69,7 @@ class FirebaseRestfulApi {
   /// Return: none/void.
   ///
   /// Throws ApiStatusCode in case of Failed connection.
-   Future<void> updateUser(UserModel user) async {
+  Future<void> updateUser(UserModel user) async {
     http.Response response = await http.patch(
       'https://$projectId.firebaseio.com/$usersNode/${user.userId}.json',
       body: user.toJson(),
@@ -89,7 +89,7 @@ class FirebaseRestfulApi {
   /// Return: none/void.
   ///
   /// Throws ApiStatusCode in case of Failed connection.
-   Future<void> deleteUser(UserModel user) async {
+  Future<void> deleteUser(UserModel user) async {
     http.Response response = await http.delete(
       'https://$projectId.firebaseio.com/$usersNode/${user.userId}.json',
     );
