@@ -41,4 +41,63 @@ class FirebaseRestfulApi {
       throw response.statusCode;
     }
   }
+
+  /// Function that connects to Firebase RealTime database and Submits new User
+  /// entry from [UserModel].
+  ///
+  /// Parameters : [user].
+  /// Return: none/void.
+  ///
+  /// Throws ApiStatusCode in case of Failed connection.
+  Future<void> newUser(UserModel user) async {
+    http.Response response = await http.post(
+      'https://$projectId.firebaseio.com/$usersNode.json',
+      body: user.toJson(),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      print(response.body);
+    } else {
+      throw response.statusCode;
+    }
+  }
+
+  /// Function that connects to Firebase RealTime database and updates User
+  /// entry from [UserModel].
+  ///
+  /// Parameters : [user].
+  /// Return: none/void.
+  ///
+  /// Throws ApiStatusCode in case of Failed connection.
+   Future<void> updateUser(UserModel user) async {
+    http.Response response = await http.patch(
+      'https://$projectId.firebaseio.com/$usersNode/${user.userId}.json',
+      body: user.toJson(),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      print(response.body);
+    } else {
+      throw response.statusCode;
+    }
+  }
+
+  /// Function that connects to Firebase RealTime database and deletes User
+  /// entry from [UserModel].
+  ///
+  /// Parameters : [user].
+  /// Return: none/void.
+  ///
+  /// Throws ApiStatusCode in case of Failed connection.
+   Future<void> deleteUser(UserModel user) async {
+    http.Response response = await http.delete(
+      'https://$projectId.firebaseio.com/$usersNode/${user.userId}.json',
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      print(response.body);
+    } else {
+      throw response.statusCode;
+    }
+  }
 }
