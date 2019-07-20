@@ -4,15 +4,25 @@ import 'package:saifoo_crud/ui/common/loading_model.dart';
 import 'package:saifoo_crud/utils/firebase_restful_api.dart';
 import 'package:saifoo_crud/utils/validators.dart';
 
-class AddNewUser extends StatefulWidget {
+class AddModifyUser extends StatefulWidget {
+  final UserModel userModel;
+
+  const AddModifyUser({Key key, this.userModel}) : super(key: key);
   @override
-  _AddNewUserState createState() => _AddNewUserState();
+  _AddModifyUserState createState() => _AddModifyUserState();
 }
 
-class _AddNewUserState extends State<AddNewUser> {
+class _AddModifyUserState extends State<AddModifyUser> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _error;
   UserModel _userModel = UserModel();
+  bool _isModifying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.userModel == null ? _isModifying = false : _isModifying = true;
+  }
 
   _submitData(BuildContext context) async {
     try {
@@ -24,7 +34,9 @@ class _AddNewUserState extends State<AddNewUser> {
         // Loading Screen
         Loading().loading(context, Colors.red);
         // Send Request
-        await FirebaseRestfulApi().newUser(_userModel);
+        _isModifying
+            ? await FirebaseRestfulApi().updateUser(_userModel)
+            : await FirebaseRestfulApi().newUser(_userModel);
         // Back Twice to all users
         Navigator.of(context).pop();
         Navigator.of(context).pop();
@@ -53,6 +65,7 @@ class _AddNewUserState extends State<AddNewUser> {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  initialValue: widget.userModel?.name ?? "",
                   onSaved: (val) => _userModel.name = val,
                   validator: Validators.nameValidator,
                   decoration: InputDecoration(
@@ -61,6 +74,7 @@ class _AddNewUserState extends State<AddNewUser> {
                   ),
                 ),
                 TextFormField(
+                  initialValue: widget.userModel?.email ?? "",
                   onSaved: (val) => _userModel.email = val,
                   validator: Validators.emailValidator,
                   decoration: InputDecoration(
@@ -69,6 +83,7 @@ class _AddNewUserState extends State<AddNewUser> {
                   ),
                 ),
                 TextFormField(
+                  initialValue: widget.userModel?.phone ?? "",
                   onSaved: (val) => _userModel.phone = val,
                   validator: Validators.phoneValidator,
                   decoration: InputDecoration(
@@ -81,6 +96,9 @@ class _AddNewUserState extends State<AddNewUser> {
                   child: Text("Submit User"),
                   color: Colors.red,
                 ),
+                if (_error != null) ...[
+                  Text("$_error"),
+                ],
               ],
             ),
           ),

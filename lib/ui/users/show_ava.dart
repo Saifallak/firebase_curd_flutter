@@ -4,7 +4,7 @@ import 'package:saifoo_crud/ui/common/loading_model.dart';
 import 'package:saifoo_crud/utils/firebase_restful_api.dart';
 import 'package:saifoo_crud/widgets/user_card.dart';
 
-import 'add_new_user.dart';
+import 'add_modify_user.dart';
 
 class ShowUsersAvailable extends StatefulWidget {
   @override
@@ -116,7 +116,7 @@ class _ShowUsersAvailableState extends State<ShowUsersAvailable> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AddNewUser(),
+            builder: (context) => AddModifyUser(),
           ),
         ),
         child: Icon(Icons.add),
