@@ -1,4 +1,4 @@
-# Elrizk Co. Interview Task
+# Firebase Restful Api Proof of Concept
 
 ## Getting Started
 
