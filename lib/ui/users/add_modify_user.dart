@@ -24,7 +24,8 @@ class _AddModifyUserState extends State<AddModifyUser> {
     if (widget.userModel != null) {
       _isModifying = true;
       _userModel = widget.userModel;
-    }  }
+    }
+  }
 
   _submitData(BuildContext context) async {
     try {
