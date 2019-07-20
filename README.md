@@ -32,9 +32,10 @@ this is just a proof of concept that we can use [Firebase](http://firebase.googl
 - - TODO: (in Future) we could use [Google Maps](https://pub.dev/packages/google_maps_flutter) to select a location from the map instead of link.
 
 ### Screenshots
-| Screenshot | Screenshot | Screenshot | Screenshot |
-|:-:|:--:|:--:|:--:|
-| <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot1.png" width="200"> | <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot2.png" width="200"> | <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot3.png" width="200"> | <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot4.png" width="200"> |
+| Screenshot | Screenshot | Screenshot |
+|:-:|:--:|:--:|
+| <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot1.png" width="200"> | <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot2.png" width="200"> | <img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot3.png" width="200"> |
+<img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot4.png" width="200"> |<img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot5.png" width="200"> |<img src="https://github.com/Saifallak/firebase_curd_flutter/raw/master/screenshots/screenshot6.png" width="200"> |
 
 
 
@@ -52,4 +53,12 @@ flutter run
 ```
 
 ### Testing
-// TODO: 
+```
+flutter test --machine test\unit_test.dart
+```
+
+#### in testing we covered the following topics
+- Email Validators Tests
+- name Validators Tests
+- phone Validators Tests
+- location Validators Tests
