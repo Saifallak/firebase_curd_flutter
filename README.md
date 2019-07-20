@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-this is just a proof of concept that we can use [Firebase](http://firebase.google.com) as [RestfulApi](https://searchmicroservices.techtarget.com/definition/RESTful-API) in Flutter(https://flutter.dev).
+this is just a proof of concept that we can use [Firebase](http://firebase.google.com) as [RestfulApi](https://searchmicroservices.techtarget.com/definition/RESTful-API) in [Flutter](https://flutter.dev).
 
 ### Packages/Plugins and why?
 
