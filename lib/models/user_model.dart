@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class UserModel {
   String userId;
   String name;
@@ -18,5 +20,13 @@ class UserModel {
     name = json['name'];
     email = json['email'];
     phone = json['phone'];
+  }
+
+  toJson() {
+    return json.encode({
+      "name": name,
+      "email": email,
+      "phone": phone,
+    });
   }
 }
